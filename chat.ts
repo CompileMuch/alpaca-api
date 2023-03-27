@@ -1,6 +1,8 @@
 import { LLamaClient } from "llama-node";
 import * as path from "path";
-require('dotenv').config()
+import { config } from "dotenv";
+
+config();
 
 const model = path.resolve(process.cwd(), process.env.ALPACA_PATH);
 

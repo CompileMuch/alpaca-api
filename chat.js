@@ -2,7 +2,8 @@
 exports.__esModule = true;
 var llama_node_1 = require("llama-node");
 var path = require("path");
-require('dotenv').config();
+var dotenv_1 = require("dotenv");
+dotenv_1.config();
 var model = path.resolve(process.cwd(), process.env.ALPACA_PATH);
 var llama = new llama_node_1.LLamaClient({
     path: model,
