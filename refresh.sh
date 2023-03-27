@@ -1,5 +1,5 @@
 git add .
 git stash
 git pull origin master
-tsc chat.tsc
+tsc chat.ts
 node chat.js
