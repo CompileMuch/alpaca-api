@@ -1,33 +1,11 @@
-import { LLamaClient } from "llama-node";
-import path from "path";
-require('dotenv').config()
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 8080;
 
-const model = path.resolve(process.cwd(), process.env.ALPACA_PATH);
+app.get('/api', (req, res) => {
+  res.json({ message: 'Hello from the API!' });
+});
 
-const llama = new LLamaClient(
-    {
-        path: model,
-        numCtxTokens: 128,
-    },
-    true
-);
-
-const content = "how are you?";
-
-llama.createChatCompletion(
-    {
-        messages: [{ role: "user", content }],
-        numPredict: BigInt(128),
-        temp: 0.2,
-        topP: 1,
-        topK: BigInt(40),
-        repeatPenalty: 1,
-        repeatLastN: BigInt(64),
-        seed: BigInt(0),
-    },
-    (response) => {
-        if (!response.completed) {
-            process.stdout.write(response.token);
-        }
-    }
-);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
