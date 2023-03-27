@@ -9,7 +9,7 @@ const model = path.resolve(process.cwd(), process.env.ALPACA_PATH);
 const llama = new LLamaClient(
     {
         path: model,
-        numCtxTokens: 128,
+        numCtxTokens: 256,
     },
     true
 );
